@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>github-profile Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../github-profile.html">
+    <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      background: #f0f0f0;
+    }
+    github-profile {
+      padding: 10px;
+      background: #fff;
+      box-shadow: 0 2px 0 rgba(0,0,0,.05);
+      font-size: 14px;
+      margin-bottom: 1em;
+      float: left;
+      width: 100%;
+      box-sizing: border-box;
+      break-inside: avoid-column;
+      border-radius: 2px;
+    }
+    .wrapper {
+      -moz-columns: 2 30%;
+      columns: 3 300px;
+      -moz-column-gap: 1em;
+      column-gap: 1em;
+    }
+
+    </style>
+    <style is="custom-style">
+    :root {
+      --github-profile-link-color: rebeccapurple;
+    }
+    </style>
+  </head>
+  <body unresolved>
+    <div class="wrapper">
+      <github-profile user="noexiste2" location></github-profile>
+      <github-profile user="GrahamCampbell" location></github-profile>
+      <github-profile user="kcmr" location></github-profile>
+      <github-profile user="fabpot" location></github-profile>
+      <github-profile user="weierophinney" location></github-profile>
+      <github-profile user="rkh"></github-profile>
+      <github-profile user="josh" location followers company blog email></github-profile>
+      <github-profile user="SamyPesse" location followers company blog email></github-profile>
+      <github-profile user="rstacruz" location blog email></github-profile>
+      <github-profile user="michalbe" location followers company blog email></github-profile>
+      <github-profile user="andrew" location blog email></github-profile>
+      <github-profile user="Ocramius" location followers company blog email></github-profile>
+      <github-profile user="c9s" location followers company blog email></github-profile>
+      <github-profile user="steipete" location followers company blog email></github-profile>
+    </div>
+  </body>
+</html>

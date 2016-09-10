@@ -1,0 +1,20 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="badge-skeleton">
+  <template>
+    <link rel="stylesheet" href="./badge-skeleton.css" inline>
+
+    <div class="skeleton">
+      <div class="skeleton__image"></div>
+      <div class="skeleton__data">
+        <div class="skeleton__data-row"></div>
+        <div class="skeleton__data-row skeleton__data-row--last"></div>
+      </div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'badge-skeleton'
+    });
+  </script>
+</dom-module>

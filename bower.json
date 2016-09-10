@@ -1,0 +1,20 @@
+{
+  "name": "github-profile",
+  "version": "0.0.0",
+  "description": "An element providing a solution to no problem in particular.",
+  "keywords": [
+    "web-component",
+    "polymer"
+  ],
+  "main": "github-profile.html",
+  "ignore": [],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.6.0",
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
+    "iron-image": "PolymerElements/iron-image#^1.2.5"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.0.0"
+  }
+}

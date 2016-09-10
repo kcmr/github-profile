@@ -1,0 +1,67 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="./badge-skeleton.html">
+
+<!--
+An element providing a solution to no problem in particular.
+
+Example:
+```html
+<github-profile>
+  <h2>Hello github-profile</h2>
+</github-profile>
+```
+
+## Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+:-- | :-- | :--
+--github-profile-property | Description | Default value
+
+@demo demo/index.html
+-->
+
+<dom-module id="github-profile">
+  <template>
+    <link rel="stylesheet" href="./github-profile.css" inline>
+
+    <iron-ajax id="ajax"
+      auto
+      url="[[_url]]"
+      handle-as="json"
+      last-response="{{response}}">
+    </iron-ajax>
+
+    <div class="content">
+      <badge-skeleton class$="skeleton [[_computeHidden(response)]]"></badge-skeleton>
+
+      <div class$="content__data badge badge--hidden-[[!_computeHidden(response)]]">
+        <div class="badge__image">
+          <a href$="[[response.html_url]]">
+            <img src$="[[response.avatar_url]]" alt="" width="50" class="badge__img">
+          </a>
+        </div>
+
+        <div class="badge__data">
+          <div class="badge__name">[[response.name]]</div>
+          <div class="badge__field badge__url">
+            <a class="badge__link" href$="[[response.html_url]]">@[[user]]</a>
+          </div>
+          <div class="badge__field badge__email" hidden$="[[!email]]">[[response.email]]</div>
+          <div class="badge__field badge__location" hidden$="[[!location]]">[[response.location]]</div>
+          <div class="badge__field badge__followers" hidden$="[[!followers]]">[[response.followers]]</div>
+          <div class="badge__field badge__company" hidden$="[[!company]]">[[response.company]]</div>
+          <div class="badge__field badge__blog" hidden$="[[!blog]]">
+            <a class="badge__link" href$="[[response.blog]]">[[response.blog]]</a>
+          </div>
+          <div class="badge__field badge__bio" hidden$="[[!bio]]">[[response.bio]]</div>
+        </div>
+      </div>
+    </div>
+
+    <content></content>
+  </template>
+  <script src="./github-profile.js" inline></script>
+</dom-module>

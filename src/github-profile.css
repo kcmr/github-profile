@@ -1,0 +1,51 @@
+:host {
+  display: block;
+}
+
+.hidden {
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.content { position: relative; }
+
+.badge,
+.skeleton { transition: opacity .2s ease-in-out; }
+
+.badge {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  min-height: 50px;
+}
+
+.badge--hidden-false { opacity: 1; }
+
+.badge__image {
+  align-self: flex-start;
+  min-height: 50px;
+}
+.badge__img {
+  border-radius: 50%;
+  display: block;
+}
+
+.badge__data {
+  padding-left: 10px;
+}
+
+.badge__link {
+  text-decoration: none;
+  color: var(--github-profile-link-color, blue);
+}
+
+.badge__name {
+  font-weight: 500;
+  font-size: 120%;
+}
+
+.badge__field {
+  font-size: 90%;
+  color: #414141;
+}
