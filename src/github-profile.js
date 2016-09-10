@@ -84,6 +84,10 @@ Polymer({
 
   _computeHidden: function(condition) {
     return condition ? 'hidden' : '';
+  },
+
+  _onResponse: function() {
+    this._setLoaded(true);
   }
 
 });
