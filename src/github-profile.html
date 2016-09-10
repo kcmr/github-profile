@@ -36,9 +36,9 @@ Custom property | Description | Default
     </iron-ajax>
 
     <div class="content">
-      <badge-skeleton class$="skeleton [[_computeHidden(response)]]"></badge-skeleton>
+      <badge-skeleton class$="skeleton [[_computeHidden(loaded)]]"></badge-skeleton>
 
-      <div class$="content__data badge badge--hidden-[[!_computeHidden(response)]]">
+      <div class$="content__data badge badge--not-[[_computeHidden(loaded)]]">
         <div class="badge__image">
           <a href$="[[response.html_url]]">
             <img src$="[[response.avatar_url]]" alt="" width="50" class="badge__img">

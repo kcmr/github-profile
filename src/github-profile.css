@@ -20,7 +20,7 @@
   min-height: 50px;
 }
 
-.badge--hidden-false { opacity: 1; }
+.badge--not-hidden { opacity: 1; }
 
 .badge__image {
   align-self: flex-start;

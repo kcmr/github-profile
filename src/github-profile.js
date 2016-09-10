@@ -69,12 +69,6 @@ Polymer({
     _url: {
       type: String,
       computed: '_computeUrl(user)'
-    },
-    _totalFields: {
-      type: Array,
-      value: function() {
-        return ['user', 'name'];
-      }
     }
   },
 
@@ -83,7 +77,7 @@ Polymer({
   },
 
   _computeHidden: function(condition) {
-    return condition ? 'hidden' : '';
+    return condition ? 'hidden' : 'visible';
   },
 
   _onResponse: function() {
