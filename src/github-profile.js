@@ -2,32 +2,63 @@ Polymer({
   is: 'github-profile',
 
   properties: {
+    /**
+     * Github username without @ sign.
+     * Required.
+     */
     user: String,
 
+    /**
+     * Show location.
+     */
     location: {
       type: Boolean,
       value: false
     },
+
+    /**
+     * Show followers count.
+     */
     followers: {
       type: Boolean,
       value: false
     },
+
+    /**
+     * Show company.
+     */
     company: {
       type: Boolean,
       value: false
     },
+
+    /**
+     * Show blog.
+     */
     blog: {
       type: Boolean,
       value: false
     },
+
+    /**
+     * Show bio.
+     */
     bio: {
       type: Boolean,
       value: false
     },
+
+    /**
+     * Show email.
+     */
     email: {
       type: Boolean,
       value: false
     },
+
+    /**
+     * True if the Github user has been loaded.
+     */
     loaded: {
       type: Boolean,
       value: false,
