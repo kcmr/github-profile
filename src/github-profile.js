@@ -90,9 +90,22 @@ Polymer({
 
   _onResponse: function() {
     this._setLoaded(true);
+  },
+
+  _onError: function(e) {
+    this.fire('load-error', {
+      error: e.detail.error
+    });
+  },
+
   _avatarSizeObserver: function(size) {
     this.customStyle['--github-profile-avatar-size'] = size + 'px';
     this.updateStyles();
   }
+
+  /**
+   * Fired when an error is received.
+   * @event load-error {{error: Object}} detail Error detail.
+   */
 
 });
