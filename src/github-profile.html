@@ -3,13 +3,22 @@
 <link rel="import" href="./badge-skeleton.html">
 
 <!--
-An element providing a solution to no problem in particular.
+Custom Element to display a badge with a Github profile.
+By default only the avatar, user name and user ID are shown. A content placeholder
+similar to that used by Facebook or Medium is shown until the Github data is loaded.
 
 Example:
 ```html
-<github-profile>
-  <h2>Hello github-profile</h2>
-</github-profile>
+<github-profile user="yourUserID"></github-profile>
+```
+
+## Github quota limits
+
+Get an [Access Token from Github](https://developer.github.com/v3/auth/#basic-authentication) to prevent exceding the quota limits.
+
+Example:
+```html
+<github-profile user="yourUserID" access-token="XXXX..."></github-profile>
 ```
 
 ## Styling
@@ -18,7 +27,15 @@ The following custom properties and mixins are available for styling:
 
 Custom property | Description | Default
 :-- | :-- | :--
---github-profile-property | Description | Default value
+--github-profile-data-padding-left | Padding between data and avatar | 10px
+--github-profile-data-padding-right | Padding between data and avatar with the avatar aligned to the right | --github-profile-data-padding-left
+--github-profile-avatar-radius | `border-radius` for the avatar | 50%
+--github-profile-link-color | Link color | blue
+--github-profile-name-font-size | User name font-size | 120%
+--github-profile-field-color | Fields color (location, bio, etc.) | #414141
+--github-profile_badge__link | Empty mixin for links | {} |
+--github-profile_badge__name | Empty mixin for the user name | {} |
+--github-profile_badge__field | Empty mixin for the fields | {} |
 
 @demo demo/index.html
 -->
