@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   opacity: 0;
-  min-height: 50px;
+  min-height: var(--github-profile-avatar-size);
 }
 
 .badge--not-hidden { opacity: 1; }
@@ -26,26 +26,31 @@
   align-self: flex-start;
   min-height: 50px;
 }
+
 .badge__img {
-  border-radius: 50%;
   display: block;
+  border-radius: var(--github-profile-avatar-radius);
 }
 
 .badge__data {
-  padding-left: 10px;
+  flex: 1;
+  padding-left: var(--github-profile-data-padding-left);
 }
 
 .badge__link {
   text-decoration: none;
   color: var(--github-profile-link-color, blue);
+  @apply(--github-profile_badge__link);
 }
 
 .badge__name {
   font-weight: 500;
-  font-size: 120%;
+  font-size: var(--github-profile-name-font-size, 120%);
+  @apply(--github-profile_badge__name);
 }
 
 .badge__field {
   font-size: 90%;
-  color: #414141;
+  color: var(--github-profile-field-color, #414141);
+  @apply(--github-profile_badge__field);
 }

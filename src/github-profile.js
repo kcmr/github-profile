@@ -70,6 +70,14 @@ Polymer({
       type: String,
       computed: '_computeUrl(user)'
     }
+    /**
+     * Size in pixels for the avatar.
+     */
+    avatarSize: {
+      type: Number,
+      value: 50,
+      observer: '_avatarSizeObserver'
+    },
   },
 
   _computeUrl: function(user) {
@@ -82,6 +90,9 @@ Polymer({
 
   _onResponse: function() {
     this._setLoaded(true);
+  _avatarSizeObserver: function(size) {
+    this.customStyle['--github-profile-avatar-size'] = size + 'px';
+    this.updateStyles();
   }
 
 });

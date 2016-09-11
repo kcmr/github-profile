@@ -26,16 +26,16 @@
 }
 
 .skeleton__image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: var(--github-profile-avatar-size);
+  height: var(--github-profile-avatar-size);
+  border-radius: var(--github-profile-avatar-radius);
   align-self: flex-start;
   @apply(--badge-skeleton-animation);
   background-size: 400px 100px;
 
 }
 .skeleton__data {
-  padding-left: 10px;
+  padding-left: var(--github-profile-data-padding-left);
   flex: 1;
 }
 .skeleton__data-row {
