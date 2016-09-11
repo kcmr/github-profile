@@ -1,14 +1,14 @@
-<link rel="import" href="../polymer/polymer.html"> <link rel="import" href="./shared-styles.html"> <dom-module id="badge-skeleton"> <template> <style include="shared-styles"></style> <style>:host{position:absolute;width:100%;--badge-skeleton-animation:{background:linear-gradient(to right,rgba(232,232,232,1) 0,rgba(199,199,199,1) 33%,rgba(232,232,232,1) 71%,rgba(232,232,232,1) 100%);animation:placeHolderShimmer 3s forwards infinite linear};}:host([avatar-right]) .skeleton{-ms-flex-direction:row-reverse;flex-direction:row-reverse}:host([avatar-right]) .skeleton__data{padding-left:0;padding-right:var(--github-profile-data-padding-right,--github-profile-data-padding-left)}@keyframes placeHolderShimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}.skeleton{transition:opacity .2s ease-in-out;display:-ms-flexbox;display:flex;width:100%;-ms-flex-align:center;align-items:center}.skeleton__image{width:var(--github-profile-avatar-size);height:var(--github-profile-avatar-size);border-radius:var(--github-profile-avatar-radius);-ms-flex-item-align:start;align-self:flex-start;@apply(--badge-skeleton-animation);background-size:400px 100px}.skeleton__data{padding-left:var(--github-profile-data-padding-left);-ms-flex:1;flex:1}.skeleton__data-row{@apply(--badge-skeleton-animation);background-size:400px 100px;height:12px;border-radius:2px;margin:5px 0 3px;width:60%}.skeleton__data-row--last{width:30%}</style> <div class="skeleton"> <div class="skeleton__image"></div> <div class="skeleton__data"> <div class="skeleton__data-row"></div> <div class="skeleton__data-row skeleton__data-row--last"></div> </div> </div> </template> <script> Polymer({
-    is: 'badge-skeleton',
-    properties: {
-      avatarSize: {
-        type: Number,
-        value: 50,
-        observer: '_avatarSizeObserver'
-      }
-    },
-    _avatarSizeObserver: function(size) {
-      this.customStyle['--github-profile-avatar-size'] = size + 'px';
-      this.updateStyles();
+<link rel="import" href="../polymer/polymer.html"> <link rel="import" href="./shared-styles.html"> <dom-module id="badge-skeleton"> <template> <style include="shared-styles"></style> <style>:host{position:absolute;width:100%;--badge-skeleton-animation:{background:linear-gradient(to right,rgba(232,232,232,1) 0,rgba(199,199,199,1) 33%,rgba(232,232,232,1) 71%,rgba(232,232,232,1) 100%);animation:placeHolderShimmer 3s forwards infinite linear};}:host([avatar-right]) .skeleton{-ms-flex-direction:row-reverse;flex-direction:row-reverse}:host([avatar-right]) .skeleton__data{padding-left:0;padding-right:var(--github-profile-data-padding-right,--github-profile-data-padding-left)}@keyframes placeHolderShimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}.skeleton{transition:opacity .2s ease-in-out;display:-ms-flexbox;display:flex;width:100%;-ms-flex-align:center;align-items:center}.skeleton__image{width:var(--github-profile-avatar-size);height:var(--github-profile-avatar-size);border-radius:var(--github-profile-avatar-radius);-ms-flex-item-align:start;align-self:flex-start;@apply(--badge-skeleton-animation);background-size:400px 100px}.skeleton__data{padding-left:var(--github-profile-data-padding-left);-ms-flex:1;flex:1}.skeleton__data-row{@apply(--badge-skeleton-animation);background-size:400px 100px;height:12px;border-radius:2px;margin:5px 0 3px;width:60%}.skeleton__data-row--last{width:30%}</style> <div class="skeleton"> <div class="skeleton__image"></div> <div class="skeleton__data"> <div class="skeleton__data-row"></div> <div class="skeleton__data-row skeleton__data-row--last"></div> </div> </div> </template> <script>Polymer({
+  is: 'badge-skeleton',
+  properties: {
+    avatarSize: {
+      type: Number,
+      value: 50,
+      observer: '_avatarSizeObserver'
     }
-  }); </script> </dom-module> 
+  },
+  _avatarSizeObserver: function(size) {
+    this.customStyle['--github-profile-avatar-size'] = size + 'px';
+    this.updateStyles();
+  }
+}); </script> </dom-module> 
