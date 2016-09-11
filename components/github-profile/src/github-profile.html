@@ -1,0 +1,89 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="./badge-skeleton.html">
+
+<!--
+Custom Element to display a badge with a Github profile.
+By default only the avatar, user name and user ID are shown. A content placeholder
+similar to that used by Facebook or Medium is shown until the Github data is loaded.
+
+Example:
+```html
+<github-profile user="yourUserID"></github-profile>
+```
+
+## Github quota limits
+
+Get an [Access Token from Github](https://developer.github.com/v3/auth/#basic-authentication) to prevent exceding the quota limits.
+
+Example:
+```html
+<github-profile user="yourUserID" access-token="XXXX..."></github-profile>
+```
+
+## Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+:-- | :-- | :--
+--github-profile-data-padding-left | Padding between data and avatar | 10px
+--github-profile-data-padding-right | Padding between data and avatar with the avatar aligned to the right | --github-profile-data-padding-left
+--github-profile-avatar-radius | `border-radius` for the avatar | 50%
+--github-profile-link-color | Link color | blue
+--github-profile-name-font-size | User name font-size | 120%
+--github-profile-field-color | Fields color (location, bio, etc.) | #414141
+--github-profile_badge__link | Empty mixin for links | {} |
+--github-profile_badge__name | Empty mixin for the user name | {} |
+--github-profile_badge__field | Empty mixin for the fields | {} |
+
+@demo demo/index.html
+-->
+
+<dom-module id="github-profile">
+  <template>
+    <link rel="stylesheet" href="./github-profile.css" inline>
+
+    <iron-ajax id="ajax"
+      auto
+      url="[[_url]]"
+      handle-as="json"
+      last-response="{{response}}"
+      on-response="_onResponse"
+      on-error="_onError">
+    </iron-ajax>
+
+    <div class="content">
+      <badge-skeleton class$="skeleton [[_computeHidden(loaded)]]"
+        avatar-right$="[[avatarRight]]"
+        avatar-size="[[avatarSize]]">
+      </badge-skeleton>
+
+      <div class$="content__data badge badge--not-[[_computeHidden(loaded)]]" itemscope itemtype="http://schema.org/Person">
+        <div class="badge__image">
+          <a href$="[[response.html_url]]">
+            <img src$="[[response.avatar_url]]" alt="" width$="[[avatarSize]]" class="badge__img" itemprop="image">
+          </a>
+        </div>
+
+        <div class="badge__data">
+          <div class="badge__name" itemprop="name" role="heading">[[response.name]]</div>
+          <div class="badge__field badge__url">
+            <a class="badge__link" href$="[[response.html_url]]" itemprop="url">@[[user]]</a>
+          </div>
+          <div class="badge__field badge__email" hidden$="[[!email]]" itemprop="email">[[response.email]]</div>
+          <div class="badge__field badge__location" hidden$="[[!location]]">[[response.location]]</div>
+          <div class="badge__field badge__followers" hidden$="[[!followers]]">[[response.followers]] followers</div>
+          <div class="badge__field badge__company" hidden$="[[!company]]">[[response.company]]</div>
+          <div class="badge__field badge__blog" hidden$="[[!blog]]">
+            <a class="badge__link" href$="[[response.blog]]">[[response.blog]]</a>
+          </div>
+          <div class="badge__field badge__bio" hidden$="[[!bio]]">[[response.bio]]</div>
+        </div>
+      </div>
+    </div>
+
+    <content></content>
+  </template>
+  <script src="./github-profile.js" inline></script>
+</dom-module>

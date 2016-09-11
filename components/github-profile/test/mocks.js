@@ -1,0 +1,22 @@
+var response_ok = {
+  'login': 'fakeUser',
+  'id': 0000001,
+  'avatar_url': 'https://avatars.githubusercontent.com/u/0000001?v=3',
+  'gravatar_id': '',
+  'url': 'https://api.github.com/users/fakeUser',
+  'html_url': 'https://github.com/fakeUser',
+  'followers_url': 'https://api.github.com/users/fakeUser/followers',
+  'following_url': 'https://api.github.com/users/fakeUser/following{/other_user}',
+  'gists_url': 'https://api.github.com/users/fakeUser/gists{/gist_id}',
+  'starred_url': 'https://api.github.com/users/fakeUser/starred{/owner}{/repo}',
+  'subscriptions_url': 'https://api.github.com/users/fakeUser/subscriptions',
+  'organizations_url': 'https://api.github.com/users/fakeUser/orgs',
+  'repos_url': 'https://api.github.com/users/fakeUser/repos',
+  'events_url': 'https://api.github.com/users/fakeUser/events{/privacy}',
+  'received_events_url': 'https://api.github.com/users/fakeUser/received_events',
+  'type': 'User',
+  'site_admin': false,
+  'name': 'Mock User',
+  'company': 'University of York',
+  'location': 'The United Kingdom'
+};

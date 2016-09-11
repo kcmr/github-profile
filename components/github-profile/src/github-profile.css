@@ -1,0 +1,68 @@
+:host {
+  display: block;
+  --github-profile-data-padding-left: 10px;
+  --github-profile-avatar-size: 50px;
+  --github-profile-avatar-radius: 50%;
+}
+
+:host([avatar-right]) .badge {
+  flex-direction: row-reverse;
+}
+
+:host([avatar-right]) .badge__data {
+  padding-left: 0;
+  padding-right: var(--github-profile-data-padding-right, --github-profile-data-padding-left);
+}
+
+.hidden {
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.content { position: relative; }
+
+.badge,
+.skeleton { transition: opacity .2s ease-in-out; }
+
+.badge {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  min-height: var(--github-profile-avatar-size);
+}
+
+.badge--not-hidden { opacity: 1; }
+
+.badge__image {
+  align-self: flex-start;
+  min-height: 50px;
+}
+
+.badge__img {
+  display: block;
+  border-radius: var(--github-profile-avatar-radius);
+}
+
+.badge__data {
+  flex: 1;
+  padding-left: var(--github-profile-data-padding-left);
+}
+
+.badge__link {
+  text-decoration: none;
+  color: var(--github-profile-link-color, blue);
+  @apply(--github-profile_badge__link);
+}
+
+.badge__name {
+  font-weight: 500;
+  font-size: var(--github-profile-name-font-size, 120%);
+  @apply(--github-profile_badge__name);
+}
+
+.badge__field {
+  font-size: 90%;
+  color: var(--github-profile-field-color, #414141);
+  @apply(--github-profile_badge__field);
+}

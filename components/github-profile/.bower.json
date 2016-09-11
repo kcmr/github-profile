@@ -1,0 +1,38 @@
+{
+  "name": "github-profile",
+  "description": "Custom Element to display a badge with a Github profile.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "custom-element",
+    "github",
+    "profile",
+    "badge",
+    "user",
+    "avatar"
+  ],
+  "main": "github-profile.html",
+  "ignore": [],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.6.0",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.4.3"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.5",
+    "paper-styles": "PolymerElements/paper-styles#^1.1.4"
+  },
+  "homepage": "https://github.com/kcmr/github-profile",
+  "_release": "9469828a59",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "9469828a59b6993a36f6d39e8c897793b8e08ad5"
+  },
+  "_source": "https://github.com/kcmr/github-profile.git",
+  "_target": "master",
+  "_originalSource": "https://github.com/kcmr/github-profile.git",
+  "_direct": true
+}
