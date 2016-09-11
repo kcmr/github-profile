@@ -27,9 +27,11 @@
           el = fixture('default');
         });
 
-        test('skeleton is visible and badge is hidden', function() {
-          assert.isTrue(el.$$('badge-skeleton').classList.contains('visible'), 'badge-skeleton is not hidden');
-          assert.isFalse(el.$$('.badge').classList.contains('badge--not-hidden', 'badge is hidden'));
+        suite('Default state', function() {
+          test('skeleton is visible and badge is hidden', function() {
+            assert.isTrue(el.$$('badge-skeleton').classList.contains('visible'), 'badge-skeleton is not hidden');
+            assert.isFalse(el.$$('.badge').classList.contains('badge--not-hidden', 'badge is hidden'));
+          });
         });
 
         suite('Setting valid user attribute', function() {
@@ -59,6 +61,7 @@
 
             flush(function() {
               assert.isDefined(el.response);
+              assert.equal(el.response.name, 'Mock User');
               done();
             });
           });
@@ -78,6 +81,54 @@
             flush(function() {
               assert.isTrue(el.$$('badge-skeleton').classList.contains('hidden'), 'badge-skeleton is hidden');
               assert.isTrue(el.$$('.badge').classList.contains('badge--not-hidden', 'badge is not hidden'));
+              done();
+            });
+          });
+        });
+
+        suite('Setting unexsistent user', function() {
+          var server;
+
+          setup(function() {
+            server = sinon.fakeServer.create();
+
+            server.respondWith(
+              'GET',
+              'https://api.github.com/users/user_ko',
+              [404, { 'Content-Type': 'application/json' },
+              JSON.stringify({
+                "message": "Not Found",
+                "documentation_url": "https://developer.github.com/v3"
+              })]
+            );
+
+            el.$.ajax.addEventListener('request', function() {
+              server.respond();
+            });
+          });
+
+          teardown(function() {
+            server.restore();
+          });
+
+          test('skeleton is visible and badge is hidden', function(done) {
+            el.set('user', 'user_ko');
+
+            flush(function() {
+              assert.isTrue(el.$$('badge-skeleton').classList.contains('visible'), 'badge-skeleton is not hidden');
+              assert.isFalse(el.$$('.badge').classList.contains('badge--not-hidden', 'badge is hidden'));
+              done();
+            });
+          });
+
+          test('`load-error` event is fired', function(done) {
+            var spy = sinon.spy();
+            el.addEventListener('load-error', spy);
+            el.set('user', 'user_ko');
+
+            flush(function() {
+              assert.equal(spy.callCount, 1);
+              assert.property(spy.getCall(0).args[0].detail, 'error');
               done();
             });
           });
