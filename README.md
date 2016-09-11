@@ -37,7 +37,7 @@ Check out the [demo and API Docs](https://kcmr.github.io/github-profile/componen
 Install the component using [Bower](http://bower.io/):
 
 ```bash
-$ bower i -S kcmr/github-profile
+$ bower i -S github-profile
 ```
 
 ## Usage
