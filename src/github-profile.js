@@ -57,6 +57,14 @@ Polymer({
     },
 
     /**
+     * Github access token used to prevent exceding the quota limits.
+     */
+    accessToken: {
+      type: String,
+      value: ''
+    },
+
+    /**
      * True if the Github user has been loaded.
      */
     loaded: {
@@ -66,10 +74,6 @@ Polymer({
       readOnly: true
     },
 
-    _url: {
-      type: String,
-      computed: '_computeUrl(user)'
-    }
     /**
      * Size in pixels for the avatar.
      */
@@ -78,10 +82,20 @@ Polymer({
       value: 50,
       observer: '_avatarSizeObserver'
     },
+
+    _url: String
   },
 
-  _computeUrl: function(user) {
-    return 'https://api.github.com/users/' + user.trim();
+  observers: [
+    '_computeUrl(user, accessToken)'
+  ],
+
+  _computeUrl: function(user, accessToken) {
+    var token = '';
+    if (accessToken.trim().length) {
+      token = '?access_token=' + accessToken;
+    }
+    this._url = 'https://api.github.com/users/' + user.trim() + token;
   },
 
   _computeHidden: function(condition) {
