@@ -38,7 +38,10 @@ Custom property | Description | Default
     </iron-ajax>
 
     <div class="content">
-      <badge-skeleton class$="skeleton [[_computeHidden(loaded)]]"></badge-skeleton>
+      <badge-skeleton class$="skeleton [[_computeHidden(loaded)]]"
+        avatar-right$="[[avatarRight]]"
+        avatar-size="[[avatarSize]]">
+      </badge-skeleton>
 
       <div class$="content__data badge badge--not-[[_computeHidden(loaded)]]">
         <div class="badge__image">

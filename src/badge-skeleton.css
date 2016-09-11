@@ -8,6 +8,15 @@
   };
 }
 
+:host([avatar-right]) .skeleton {
+  flex-direction: row-reverse;
+}
+
+:host([avatar-right]) .skeleton__data {
+  padding-left: 0;
+  padding-right: var(--github-profile-data-padding-right, --github-profile-data-padding-left);
+}
+
 
 @keyframes placeHolderShimmer {
 	0% {

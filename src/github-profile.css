@@ -1,5 +1,15 @@
 :host {
   display: block;
+  --github-profile-data-padding-left: 10px;
+}
+
+:host([avatar-right]) .badge {
+  flex-direction: row-reverse;
+}
+
+:host([avatar-right]) .badge__data {
+  padding-left: 0;
+  padding-right: var(--github-profile-data-padding-right, --github-profile-data-padding-left);
 }
 
 .hidden {
