@@ -43,7 +43,7 @@ gulp.task('build', function() {
       keepClosingSlash: true,
       customAttrAssign: [/\$=/],
       minifyCSS: true,
-      minifyJS: false
+      minifyJS: true
     }))
 
     .pipe(gulp.dest('.'));
