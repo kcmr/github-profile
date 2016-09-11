@@ -4,6 +4,8 @@ Custom Element to display a badge with a Github profile.
 By default only the avatar, user name and user ID are shown. A content placeholder
 similar to that used by Facebook or Medium is shown until the Github data is loaded.
 
+![Demo](github-profile-demo.gif)
+
 Example:
 ```html
 <github-profile user="yourUserID"></github-profile>
