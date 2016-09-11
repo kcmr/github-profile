@@ -43,21 +43,21 @@ Custom property | Description | Default
         avatar-size="[[avatarSize]]">
       </badge-skeleton>
 
-      <div class$="content__data badge badge--not-[[_computeHidden(loaded)]]">
+      <div class$="content__data badge badge--not-[[_computeHidden(loaded)]]" itemscope itemtype="http://schema.org/Person">
         <div class="badge__image">
           <a href$="[[response.html_url]]">
-            <img src$="[[response.avatar_url]]" alt="" width="50" class="badge__img">
+            <img src$="[[response.avatar_url]]" alt="" width$="[[avatarSize]]" class="badge__img" itemprop="image">
           </a>
         </div>
 
         <div class="badge__data">
-          <div class="badge__name">[[response.name]]</div>
+          <div class="badge__name" itemprop="name" role="heading">[[response.name]]</div>
           <div class="badge__field badge__url">
-            <a class="badge__link" href$="[[response.html_url]]">@[[user]]</a>
+            <a class="badge__link" href$="[[response.html_url]]" itemprop="url">@[[user]]</a>
           </div>
-          <div class="badge__field badge__email" hidden$="[[!email]]">[[response.email]]</div>
+          <div class="badge__field badge__email" hidden$="[[!email]]" itemprop="email">[[response.email]]</div>
           <div class="badge__field badge__location" hidden$="[[!location]]">[[response.location]]</div>
-          <div class="badge__field badge__followers" hidden$="[[!followers]]">[[response.followers]]</div>
+          <div class="badge__field badge__followers" hidden$="[[!followers]]">[[response.followers]] followers</div>
           <div class="badge__field badge__company" hidden$="[[!company]]">[[response.company]]</div>
           <div class="badge__field badge__blog" hidden$="[[!blog]]">
             <a class="badge__link" href$="[[response.blog]]">[[response.blog]]</a>
