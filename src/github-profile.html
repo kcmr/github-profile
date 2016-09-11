@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="./shared-styles.html">
 <link rel="import" href="./badge-skeleton.html">
 
 <!--
@@ -25,6 +26,7 @@ Custom property | Description | Default
 
 <dom-module id="github-profile">
   <template>
+    <style include="shared-styles"></style>
     <link rel="stylesheet" href="./github-profile.css" inline>
 
     <iron-ajax id="ajax"
