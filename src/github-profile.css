@@ -1,6 +1,8 @@
 :host {
   display: block;
   --github-profile-data-padding-left: 10px;
+  --github-profile-avatar-size: 50px;
+  --github-profile-avatar-radius: 50%;
 }
 
 :host([avatar-right]) .badge {
