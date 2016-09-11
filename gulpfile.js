@@ -43,7 +43,7 @@ gulp.task('build', function() {
       keepClosingSlash: true,
       customAttrAssign: [/\$=/],
       minifyCSS: true,
-      minifyJS: true
+      minifyJS: false
     }))
 
     .pipe(gulp.dest('.'));
@@ -69,4 +69,3 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['build', 'browserSync', 'watch']);
-
