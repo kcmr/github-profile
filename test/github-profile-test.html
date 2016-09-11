@@ -22,9 +22,35 @@
     <script>
       suite('<github-profile>', function() {
         var el;
+        var server;
 
         setup(function() {
           el = fixture('default');
+          server = sinon.fakeServer.create();
+
+          server.respondWith(
+            'GET',
+            /user_ok\?*/,
+            [200, { 'Content-Type': 'application/json' },
+            JSON.stringify(response_ok)]
+          );
+
+          server.respondWith(
+            'GET',
+            /user_ko/,
+            [404, { 'Content-Type': 'application/json' },
+            JSON.stringify({
+              "message": "Not Found"
+            })]
+          );
+
+          el.$.ajax.addEventListener('request', function() {
+            server.respond();
+          });
+        });
+
+        teardown(function() {
+          server.restore();
         });
 
         suite('Default state', function() {
@@ -35,27 +61,6 @@
         });
 
         suite('Setting valid user attribute', function() {
-          var server;
-
-          setup(function() {
-            server = sinon.fakeServer.create();
-
-            server.respondWith(
-              'GET',
-              'https://api.github.com/users/user_ok',
-              [200, { 'Content-Type': 'application/json' },
-              JSON.stringify(response_ok)]
-            );
-
-            el.$.ajax.addEventListener('request', function() {
-              server.respond();
-            });
-          });
-
-          teardown(function() {
-            server.restore();
-          });
-
           test('response is set', function(done) {
             el.set('user', 'user_ok');
 
@@ -87,30 +92,6 @@
         });
 
         suite('Setting unexsistent user', function() {
-          var server;
-
-          setup(function() {
-            server = sinon.fakeServer.create();
-
-            server.respondWith(
-              'GET',
-              'https://api.github.com/users/user_ko',
-              [404, { 'Content-Type': 'application/json' },
-              JSON.stringify({
-                "message": "Not Found",
-                "documentation_url": "https://developer.github.com/v3"
-              })]
-            );
-
-            el.$.ajax.addEventListener('request', function() {
-              server.respond();
-            });
-          });
-
-          teardown(function() {
-            server.restore();
-          });
-
           test('skeleton is visible and badge is hidden', function(done) {
             el.set('user', 'user_ko');
 
@@ -131,6 +112,16 @@
               assert.property(spy.getCall(0).args[0].detail, 'error');
               done();
             });
+          });
+        });
+
+        suite('Using accessToken property', function() {
+          test('the request url contains accessToken as query param', function() {
+            el.$.ajax.auto = false;
+            el.set('accessToken', 'ANY');
+            el.set('user', 'user_ok');
+
+            assert.equal(el.$.ajax.url, 'https://api.github.com/users/user_ok?access_token=ANY');
           });
         });
       });
