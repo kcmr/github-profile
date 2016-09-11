@@ -9,12 +9,13 @@
   "main": "github-profile.html",
   "ignore": [],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.6.0",
-    "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
-    "iron-image": "PolymerElements/iron-image#^1.2.5"
+    "polymer": "Polymer/polymer#~1.6.0",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.4.3"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "web-component-tester": "^4.0.0"
+    "web-component-tester": "^4.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.5",
+    "paper-styles": "PolymerElements/paper-styles#^1.1.4"
   }
 }

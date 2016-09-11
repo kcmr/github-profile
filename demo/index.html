@@ -5,55 +5,70 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <title>github-profile Demo</title>
     <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../shared-styles.html">
     <link rel="import" href="../github-profile.html">
+    <link rel="import" href="../paper-styles/demo-pages.html">
+    <link rel="import" href="../iron-demo-helpers/demo-snippet.html">
     <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      background: #f0f0f0;
+    .wrapper { margin: auto; }
+    github-profile { font-size: 14px; }
+    demo-snippet { margin-bottom: 30px; }
+    h1 { font-weight: 300; font-size: 1.5rem; margin: 0 0 1em; }
+    @media (min-width: 56.25em) {
+      .wrapper { max-width: 50%; }
     }
-    github-profile {
-      padding: 10px;
-      background: #fff;
-      box-shadow: 0 2px 0 rgba(0,0,0,.05);
-      font-size: 14px;
-      margin-bottom: 1em;
-      float: left;
-      width: 100%;
-      box-sizing: border-box;
-      break-inside: avoid-column;
-      border-radius: 2px;
-    }
-    .wrapper {
-      -moz-columns: 2 30%;
-      columns: 3 300px;
-      -moz-column-gap: 1em;
-      column-gap: 1em;
-    }
+    </style>
 
-    </style>
-    <style is="custom-style">
-    :root {
-      --github-profile-link-color: rebeccapurple;
-    }
-    </style>
   </head>
   <body unresolved>
     <div class="wrapper">
-      <github-profile></github-profile>
-      <github-profile user="noexiste2" location></github-profile>
-      <github-profile user="GrahamCampbell" location></github-profile>
-      <github-profile user="kcmr" location></github-profile>
-      <github-profile user="fabpot" location></github-profile>
-      <github-profile user="weierophinney" location></github-profile>
-      <github-profile user="rkh"></github-profile>
-      <github-profile user="josh" location followers company blog email></github-profile>
-      <github-profile user="SamyPesse" location followers company blog email></github-profile>
-      <github-profile user="rstacruz" location blog email></github-profile>
-      <github-profile user="michalbe" location followers company blog email></github-profile>
-      <github-profile user="andrew" location blog email></github-profile>
-      <github-profile user="Ocramius" location followers company blog email></github-profile>
-      <github-profile user="c9s" location followers company blog email></github-profile>
-      <github-profile user="steipete" location followers company blog email></github-profile>
+    <demo-snippet>
+      <h1>Without user attribute</h1>
+      <template>
+        <github-profile user="noexiste2"></github-profile>
+      </template>
+    </demo-snippet>
+
+    <demo-snippet>
+      <h1>Default fields</h1>
+      <template>
+        <github-profile user="weierophinney"></github-profile>
+      </template>
+    </demo-snippet>
+
+    <demo-snippet>
+      <h1>With location</h1>
+      <template>
+        <github-profile user="fabpot" location></github-profile>
+      </template>
+    </demo-snippet>
+
+    <demo-snippet>
+      <h1>With all the optional attributes</h1>
+      <template>
+        <github-profile user="GrahamCampbell" location company email blog followers bio></github-profile>
+      </template>
+    </demo-snippet>
+
+    <demo-snippet>
+      <h1>With custom styles and right avatar</h1>
+      <template>
+        <github-profile user="kcmr" location class="custom" avatar-right avatar-size="60"></github-profile>
+        <style is="custom-style">
+        .custom {
+          font-family: Georgia, serif;
+          font-size: 1rem;
+          color: #4f0c53;
+          --github-profile-name-font-size: 100%;
+          --github-profile-link-color: #15a0a4;
+          --github-profile-field-color: #787575;
+          --github-profile-avatar-radius: 0;
+        }
+        </style>
+      </template>
+    </demo-snippet>
     </div>
+
+
   </body>
 </html>
