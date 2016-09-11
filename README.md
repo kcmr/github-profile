@@ -30,7 +30,7 @@ Example:
 <github-profile user="kcmr" access-token="XXXX..."></github-profile>
 ```
 
-Check out the [API Docs]() for more info.
+Check out the [demo and API Docs](https://kcmr.github.io/github-profile/components/github-profile/) for more info.
 
 ## Install
 
